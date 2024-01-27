@@ -5,53 +5,53 @@ describe('Strings' , () => {
 
     it('#testCreatePrimitiveStringObject', () => {
         const anyValue = new String("Hello World");
-        equal(__, typeof anyValue === 'object');
+        equal(true, typeof anyValue === 'object');
     });
 
     it('#testDoubleQuotedStringsAreStrings', () => {
         const anyValue = "Hello World";
-        equal(__, typeof anyValue === 'string');
+        equal(true, typeof anyValue === 'string');
     });
 
     it('#testSingleQuotedStringsAreAlsoStrings', () => {
         const anyValue = 'Hello World';
-        equal(__, typeof anyValue === 'string');
+        equal(true, typeof anyValue === 'string');
     });
 
     it('#testUseSingleQuotesToCreateStringWithDoubleQuotes', () => {
         const anyValue = 'He said, "Go Away."';
-        equal(__, anyValue);
+        equal('He said, "Go Away."', anyValue);
     });
 
     it('#testUseDoubleQuotesToCreateStringsWithSingleQuotes', () => {
         const anyValue = "Don't";
-        equal(__, anyValue);
+        equal("Don't", anyValue);
     });
 
     it('#testUseBackslashForThoseHardCases', () => {
         const a = "He said, \"Don't\"";
         const b = 'He said, "Don\'t"'
-        equal(__, a === b)
+        equal(true, a === b)
     });
 
     it('#testPlusWillConcatenateTwoStrings', () => {
         const string = "Hello, " + "World";
-        equal(__, string)
+        equal("Hello, World", string)
     });
         
     it('#testPlusConcatenationWillLeaveTheOriginalStringsUnmodified', () => {
         const hi = "Hello, ";
         const there = "World"
         const string = hi + there; 
-        equal(__, hi);
-        equal(__, there);
+        equal("Hello, ", hi);
+        equal("World", there);
     });
 
     it('#testLongString', () => {
         const longString = "This is a very long string which needs \
                             to wrap across multiple lines because \
                             otherwise my code is unreadable."
-        equal(__, longString.split("\n").length);
+        equal(1, longString.split("\n").length);
     });
 
     // EXCERSIE
@@ -60,12 +60,12 @@ describe('Strings' , () => {
 
     it('#testStringsCanBeJoined', () => {
         const words = ["Now", "is", "the", "time"]
-        equal(__, words.join(" "));
+        equal("Now is the time", words.join(" "));
     });
 
     it('#testStringsCanBeSplitWithDifferentPatterns', () => {
         const string = "the:rain:in:spain"
         const words = string.split(/:/)
-        deepEqual(__, words);
+        deepEqual(['the', 'rain', 'in', 'spain'], words);
     });
 });

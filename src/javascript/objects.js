@@ -7,10 +7,10 @@ describe('Objects' , () => {
             b: 'string',
             c: 1.1
         };
-        equal(__, typeof anyValue);
-        equal(__, typeof anyValue.a);
-        equal(__, typeof anyValue.b);
-        equal(__, typeof anyValue.c);
+        equal('object', typeof anyValue);
+        equal('number', typeof anyValue.a);
+        equal('string', typeof anyValue.b);
+        equal('number', typeof anyValue.c);
     });
 
     it('#testObjectsCanBeConvertedToString', () => {
@@ -19,9 +19,9 @@ describe('Objects' , () => {
             b: 'string',
             c: 1.1
         };
-        equal(__, anyValue.a.toString());
-        equal(__, anyValue.b.toString());
-        equal(__, anyValue.c.toString());
+        equal('1', anyValue.a.toString());
+        equal('string', anyValue.b.toString());
+        equal('1.1', anyValue.c.toString());
     });
 
     it('#testObjectsCanBeCompared', () => {
@@ -31,6 +31,6 @@ describe('Objects' , () => {
             c: 1.1
         };
         const cloneValue = anyValue
-        equal(__, anyValue === cloneValue); 
+        equal(true, anyValue === cloneValue); 
     });
 });

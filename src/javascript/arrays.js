@@ -4,60 +4,60 @@ const { equal, deepEqual } = require('assert');
 describe('Arrays' , () => {
     it('#testCreatingArrays', () => {
         const anyValue = [];
-        equal('__', typeof anyValue);
-        equal(__, anyValue.length);
+        equal('object', typeof anyValue);
+        equal(0, anyValue.length);
     });
 
     it('#testArrayLiterals', () => {
         const anyValue = [];
-        equal('__', typeof anyValue);
+        equal('object', typeof anyValue);
 
         anyValue[0] = 1;
-        equal(__, anyValue.length);
+        equal(1, anyValue.length);
         
         anyValue[1] = 2;
-        deepEqual([__, __], anyValue);
+        deepEqual([1, 2], anyValue);
     });
 
     it('#testAccessingArrayElements', () => {
         const array = ['peanut', 'butter', 'and', 'jelly'];
 
-        equal(__, array[0]);
-        equal(__, array.length);
-        equal(__, array[2]);
+        equal('peanut', array[0]);
+        equal(4, array.length);
+        equal('and', array[2]);
     });
 
     it('#testAccessingArrayElements', () => {
         const array = ['peanut', 'butter', 'and', 'jelly'];
         
-        deepEqual(__, array.slice(0, 1));
-        deepEqual(__, array.slice(0, 2));
-        deepEqual(__, array.slice(2, 2));
-        deepEqual(__, array.slice(1, 10));
-        deepEqual(__, array.slice(10, 1));
-        deepEqual(__, array.slice(-2));
+        deepEqual(['peanut'], array.slice(0, 1));
+        deepEqual(['peanut', 'butter'], array.slice(0, 2));
+        deepEqual([], array.slice(2, 2));
+        deepEqual(['butter', 'and', 'jelly'], array.slice(1, 10));
+        deepEqual([], array.slice(10, 1));
+        deepEqual(['and', 'jelly'], array.slice(-2));
     });
 
     it('#testShiftingArrays', () => {
         const array = ['peanut', 'butter', 'and', 'jelly'];
     
-        equal(__, array.shift());
-        equal(__, array.length);
-        equal(__, array.shift());
+        equal('peanut', array.shift());
+        equal(3, array.length);
+        equal('butter', array.shift());
         
         array.unshift('nut');
-        equal(__, array.length);
-        deepEqual(__, array);
+        equal(3, array.length);
+        deepEqual(['nut', 'and', 'jelly'], array);
     });
 
     it('#testPushingAndPoppingArrays', () => {
         const array = ['peanut', 'butter', 'and', 'jelly'];
     
         array.push('nut');
-        equal(__, array.length);
-        deepEqual(__, array);
-        equal(__, array.pop());
-        deepEqual(__, array);
+        equal(5, array.length);
+        deepEqual(['peanut', 'butter', 'and', 'jelly', 'nut'], array);
+        equal('nut', array.pop());
+        deepEqual(['peanut', 'butter', 'and', 'jelly'], array);
     });
         
 });

@@ -30,9 +30,37 @@
  * @param {Array} dice 
  * @returns {Number}
  */
+const { equal } = require('assert');
 
 const score = (dice) => {
+  let counts = {}
+  dice.forEach((v) => {
+    if (!counts[v]) {
+      counts[v.toString()] = 0
+    }
+    counts[v]++
+  })
+  let score = 0
+  if (counts['1'] >= 3) {
+    score += 1000
+    counts['1'] = counts['1'] - 3
+  }
+  for (let key in counts) {
+    if (counts[key] >= 3){
+      score += (Number(key) * 100)
+      counts[key] = counts[key] - 3
+    }
+  }
 
+  if (counts['1'] > 0) {
+    score += (counts['1'] * 100)
+    counts['1'] = null 
+  }
+  if (counts['5'] > 0) {
+    score += (counts['5'] * 50)
+    counts['5'] = null 
+  }
+  return score
 };
 
 describe('ScoringProject' , () => {

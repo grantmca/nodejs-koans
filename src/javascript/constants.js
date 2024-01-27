@@ -24,30 +24,30 @@ describe('Constants' , () => {
     const GLOBAL = "I am nested global";
     var ANOTHER_GLOBAL = "I am another global";
     it('#testNestedConstants', () => { 
-        equal(__, GLOBAL);
+        equal("I am nested global", GLOBAL);
     });
 
     it('#testGlobalConstantsEnclosingInClasses', () => { 
-        equal(__, new Person().getAge());
+        equal(4, new Person().getAge());
     });
 
     it('#testConstantsUsingInheritance', () => { 
-        equal(__, new Teacher().getAge());
+        equal(4, new Teacher().getAge());
     });
 
     it('#testConstantsInitialization', () => { 
         try {
             GLOBAL = 10; // Throws error "Assignment to constant variable."
         } catch (error) {
-            equal(__, error.message);
+            equal("Assignment to constant variable.", error.message);
         }
 
         ANOTHER_GLOBAL = 10;
-        equal(__ ,ANOTHER_GLOBAL);
+        equal(10 ,ANOTHER_GLOBAL);
     });
 
     it('#testConstantsScope', () => { 
         let GLOBAL = 10;
-        equal(__ ,GLOBAL);
+        equal( 10,GLOBAL);
     });
 });

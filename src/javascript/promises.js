@@ -30,18 +30,18 @@ const basic =  (result) => {
 
 describe('Promises' , () => {
     it('#should do something with promises', () => {
-        equal(typeof basic, __)
+        equal(typeof basic, 'function')
     });
 
     it('should return error message', () => {
         return basic().then(() => {}, (message) => {
-            equal(message, __);
+            equal(message, "Failure");
         });
     });
 
     it('should return success message', () => {
         return basic('Success').then((message) => {
-            equal(message, __);
+            equal(message, 'Success');
         });
     });
 });

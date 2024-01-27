@@ -17,23 +17,23 @@ class Dog3 {
 }
 describe('Classes' , () => {
     it('#testClassName', () => { 
-        equal(__, Dog.name);
+        equal("Dog", Dog.name);
     });
 
     it('#testInstanceVariablesSetByAssigning', () => { 
         const d = new Dog2();
         d.setName("Tony");
-        equal(__, d.name);
+        equal("Tony", d.name);
     });
 
     it('#testStaticMemberVariablesAndMethods', () => { 
-        equal(__, Dog3.breed);
-        equal(__, Dog3.getName());
+        equal("pug", Dog3.breed);
+        equal("Laila", Dog3.getName());
     });
 
     it('#testIsStaticMemberVariablesAndMethodsAccessible', () => { 
         const d = new Dog3();
-        equal(__, d.breed);
-        equal(__, d.getName);
+        equal(undefined, d.breed);
+        equal(undefined, d.getName);
     });
 });

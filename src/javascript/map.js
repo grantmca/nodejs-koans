@@ -3,8 +3,8 @@ const { equal } = require('assert');
 describe('Map' , () => {
     it('#testCreatingMap', () => {
         const map = new Map();
-        equal(__, typeof map === 'object');
-        equal(__, map.size);
+        equal(true, typeof map === 'object');
+        equal(0, map.size);
     });
 
     it('#testAccessingMap', () => {
@@ -12,13 +12,13 @@ describe('Map' , () => {
 
         map.set('Jessie', {phone: "213-555-1234", address: "123 N 1st Ave"})
 
-        equal(__, map.has('Jessie'));
-        equal(__, map.get('Hilary'));
+        equal(true, map.has('Jessie'));
+        equal(undefined, map.get('Hilary'));
         map.set('Hilary', {phone: "617-555-4321", address: "321 S 2nd St"})
 
-        equal(__, map.delete('Raymond'));
-        equal(__, map.delete('Jessie'));
-        equal(__, map.size)
+        equal(false, map.delete('Raymond'));
+        equal(true, map.delete('Jessie'));
+        equal(1, map.size)
     });
 
 
@@ -36,9 +36,9 @@ describe('Map' , () => {
 
         const merged = new Map([...first, ...second])
           
-        equal(__, merged.get(1))
-        equal(__, merged.get(2))
-        equal(__, merged.get(3))
+        equal('uno', merged.get(1))
+        equal('dos', merged.get(2))
+        equal('three', merged.get(3))
     });
 
     it('#testClearingHash', () => {
@@ -48,10 +48,10 @@ describe('Map' , () => {
             [3, 'three'],
         ]);
           
-        equal(__, first.size);
+        equal(3, first.size);
 
         first.clear();
-        equal(__, first.size)
+        equal(0, first.size)
     });
    
 });

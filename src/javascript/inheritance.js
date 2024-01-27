@@ -28,36 +28,37 @@ describe('Inheritance' , () => {
     }
     
     it('#testDerivedClassHaveTheBaseAsAnAncestor', () => {
-        equal(__, Chihuahua.prototype instanceof Dog);
+        equal(true, Chihuahua.prototype instanceof Dog);
     });
 
     it('#testAllClassesUltimatelyInheritFromObject', () => {
-        equal(__, Chihuahua.prototype instanceof Object);
+        equal(true, Chihuahua.prototype instanceof Object);
     });
 
     it('#testDerivedClassesInheritBehaviorFromBaseClass', () => {
         const chico = new Chihuahua("Chico");
-        equal(__, chico.name);
+        equal("Chico", chico.name);
     });
 
     it('#testDerivedClassesInheritBehaviorFromBaseClass', () => {
         const chico = new Chihuahua("Chico");
-        equal(__, chico.wag());
+        equal("HAPPY", chico.wag());
 
         try {
             const laila = new Dog("Laila");
             laila.wag();    
         } catch (error) {
-            match(error.toString(), /__/)
+            console.log(error.toString())
+            match(error.toString(), /laila.wag is not a function/)
         }
     });
 
     it('#testDerivedClassesCanModifyExistingBehavior', () => {
         const chico = new Chihuahua("Chico");
-        equal(__, chico.bark());
+        equal("WIG", chico.bark());
         
         const laila = new Dog("Laila");
-        equal(__, laila.bark())
+        equal("WOOF", laila.bark())
     });
 
     // ------------------------------------------------------------
@@ -74,7 +75,7 @@ describe('Inheritance' , () => {
 
     it('#testDerivedClassesCanInvokeBaseBehaviorViaSuper', () => {
         const ralph = new BullDog("Ralph");
-        equal(__, ralph.bark());
+        equal("Ralph, GROWL", ralph.bark());
     });
     
     // ------------------------------------------------------------
@@ -91,6 +92,6 @@ describe('Inheritance' , () => {
 
     it('#testDerivedClassesCanInvokeBaseMethodViaSuper', () => {
         const tom = new GreatDane("Tom");
-        equal(__, tom.growl());
+        equal("WOOF, GROWL", tom.growl());
     });
 });

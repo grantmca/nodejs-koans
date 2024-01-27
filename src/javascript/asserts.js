@@ -2,20 +2,20 @@ const { equal } = require('assert');
 
 describe('Asserts' , () => {
     it('#testAssertTruth', () => {
-        equal(__, true); // This should be true
+        equal(true, true); // This should be true
     });
 
     it('#testAssertWithMessage', () => {
-        equal(__, 'This should be true -- Please fix this');
+        equal('This should be true -- Please fix this', 'This should be true -- Please fix this');
     });
 
     it('#testAssertEquality', () => {
         expectedValue = 2
         actualValue = 1 + 1
-        equal(__, expectedValue);
+        equal(actualValue, expectedValue);
     });
 
     it('#testABetterWayOfAssertingEquality', () => {
-        equal(__, 1 + 1);
+        equal(expectedValue, 1 + 1);
     });
 });

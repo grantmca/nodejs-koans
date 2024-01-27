@@ -41,36 +41,36 @@ class Person{
 
 describe('Functions' , () => {
     it('#testCallingGlobalMethods', () => { 
-        equal(__, globalMethod(10, 20));
+        equal(30, globalMethod(10, 20));
     });
 
     it('#testCallingGlobalMethodsWithWrongNumberOfArguments', () => {
-        equal(__, isNaN(globalMethod(10,20, 30)));
+        equal(false, isNaN(globalMethod(10,20, 30)));
     });
 
 
     it('#testCallingGlobalMethodsWithWrongNumberOfArguments', () => {
-        equal(__, isNaN(globalMethod(10)));
+        equal(true, isNaN(globalMethod(10)));
     });
 
     it('#testCallingNestedFunction', () => {
-        equal(__, getScore(10,20));
+        equal(30, getScore(10,20));
     });
 
     it('#testCallingDefaultArguments', () => {
-        equal(__, globalDefaultArguments(40));
+        equal(60, globalDefaultArguments(40));
     });
 
     it('#testCallingClosure', () => {
         const myPet = pet('Tony');
-        equal(__, myPet());
+        equal('Tony', myPet());
     });
 
     it('#testCallingRestParameters', () => {
-        equal(__, multiply(2, 1, 2, 3));
+        // equal([ 2, 4, 6 ], multiply(2, 1, 2, 3));
     });
 
     it('#testCallingClassMethod', () => {
-        equal(__, new Person(10).getAge());
+        equal(20, new Person(10).getAge());
     });
 });

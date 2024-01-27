@@ -8,7 +8,7 @@ describe('ControlStatements' , () => {
         }else{
             result = false;
         }
-        equal(__, result);
+        equal(true, result);
     });
 
     it('#testIfThenStatements', () => {
@@ -16,7 +16,7 @@ describe('ControlStatements' , () => {
         if(true){
             result = false;
         }
-        equal(__, result);
+        equal(false, result);
     });
 
 
@@ -27,7 +27,7 @@ describe('ControlStatements' , () => {
             }
             return false;
         }
-        equal(__, someVal());
+        equal(true, someVal());
         
         const newVal = () => {
             if(false){
@@ -35,7 +35,7 @@ describe('ControlStatements' , () => {
             }
             return false;
         }
-        equal(__, newVal());
+        equal(false, newVal());
     });
 
     it('#testDefaultReturnValue', () => {
@@ -44,15 +44,15 @@ describe('ControlStatements' , () => {
                 return true;
             }
         }
-        equal(__, someVal());
+        equal(undefined, someVal());
     });
 
     it('#testConditionalOperators', () => {
         let someVal = true;
-        equal(__, someVal ? true : false);
+        equal(true, someVal ? true : false);
 
         let newVal = false;
-        equal(__, newVal ? true : false);
+        equal(false, newVal ? true : false);
     });
 
     it('#testWhileStatement', () => {
@@ -62,7 +62,7 @@ describe('ControlStatements' , () => {
             result = result * i;
             i++;
         }
-        equal(__, result);
+        equal(120, result);
     });
 
     it('#testBreakStatement', () => {
@@ -74,7 +74,7 @@ describe('ControlStatements' , () => {
             if( i === 5 )
                 break;
         }
-        equal(__, result);
+        equal(24, result);
     });
 
     it('#testContinueStatement', () => {
@@ -86,7 +86,7 @@ describe('ControlStatements' , () => {
             if( i == 3 )
                 continue;
         }
-        equal(__, result);
+        equal(120, result);
     });
 
     it('#testForStatement', () => {
@@ -94,7 +94,7 @@ describe('ControlStatements' , () => {
         for(let i = 1; i <= 5; i++){
             result = result * i;
         }
-        equal(__, result);
+        equal(120, result);
     });
 
     it('#testForInStatement', () => {
@@ -104,6 +104,6 @@ describe('ControlStatements' , () => {
         for (let x in numbers) {
             result += numbers[x];
         }
-        equal(__, result);
+        equal(15, result);
     });
 });

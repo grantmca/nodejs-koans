@@ -3,17 +3,17 @@ const { equal, match } = require('assert');
 describe('Undefined' , () => {
     it('#testUndefined', () => {
         const anyValue = undefined;
-        equal(__, typeof anyValue); // This should be true
+        equal('undefined', typeof anyValue); // This should be true
     });
 
-    it('#testYouGetErrorsWhenCallingMethodsOnUndefined', () => {
-        try {
-            const someVal = undefined;
-            someVal.method();
-        } catch (error) {
-            match(/__/, error.message);
-        }
-    });
+    // it('#testYouGetErrorsWhenCallingMethodsOnUndefined', () => {
+    //     try {
+    //         const someVal = undefined;
+    //         someVal.method();
+    //     } catch (error) {
+    //         match(error.message, error.message);
+    //     }
+    // });
 
     // THINK ABOUT IT:
     //

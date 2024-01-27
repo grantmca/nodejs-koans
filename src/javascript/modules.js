@@ -5,14 +5,14 @@ const { FOO, fooBarMethod, BAR } = require('./foo');
 
 describe('Modules' , () => {
     it('#testModuleVariable', () => {
-        equal(__, FOO);
+        equal("I am Foo!", FOO);
     });
 
     it('#testModuleMethod', () => {
-        equal(__, fooBarMethod());
+        equal("I am Bar!", fooBarMethod());
     });
 
     it('#testAccessingModule', () => {
-        equal(__, BAR); 
+        equal(undefined, BAR); 
     });
 });
